@@ -14,7 +14,7 @@ const HOSTNAMES = Object.values(os.networkInterfaces())
   .flat()
   .filter(e => !e.internal && String(e.family).includes('4'))
   .map(({ address }) => address)
-HOSTNAMES.unshift('gpn-mazing.v6.rocks')
+//HOSTNAMES.unshift('gpn-mazing.v6.rocks')
 
 if (HOSTNAMES.length === 0) throw new Error('Failed getting external ips!')
 
@@ -220,7 +220,7 @@ export class MazeServer extends EventEmitter {
 
 
 
-    clientSocket.send('motd', 'You can find the protocol documentation here: https://github.com/freehuntx/gpn-mazing/blob/master/PROTOCOL.md')
+    clientSocket.send('motd', 'You can find the protocol documentation here: https://maze.talvi.space')
 
     // We need a timeout to detect if a client takes too long to join. 5 seconds should be fine
     const joinTimeout = setTimeout(() => {
